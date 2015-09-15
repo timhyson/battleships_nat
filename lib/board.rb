@@ -17,12 +17,12 @@ class Board
 	def board_to_html
 		@display = []
 		@grid.each do |k, v|
-			if v.hit == false ; @display << "<p>W</p>"
-			elsif v.hit == true ; @display << "<p>H</p>"
+			if v.hit == false ; @display << "W"
+			elsif v.hit == true ; @display << "H"
 			end
 		end
 
-		"<p>#{@display}</p>"
+		"<p style='width: 200px;'>#{@display.join(" ")}</p>"
 
 	end
 
