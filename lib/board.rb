@@ -14,6 +14,18 @@ class Board
   	"<p>#{@grid}</p>"
 	end
 
+	def board_to_html
+		@display = []
+		@grid.each do |k, v|
+			if v.hit == false ; @display << "<p>W</p>"
+			elsif v.hit == true ; @display << "<p>H</p>"
+			end
+		end
+
+		"<p>#{@display}</p>"
+
+	end
+
 	def place(ship, coord, orientation = :horizontally)
 		coords = [coord]
 		ship.size.times{coords << next_coord(coords.last, orientation)}

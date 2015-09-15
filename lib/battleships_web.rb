@@ -12,7 +12,8 @@ class BattleshipsWeb < Sinatra::Base
 
   get '/newpage' do
     @visitor = params[:name]
-    @board_render = Board.new(Cell).print_html
+    @board_render = Board.new(Cell).board_to_html
+
     erb :newpage
   end
 
