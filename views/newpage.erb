@@ -6,10 +6,11 @@
     <input type="text" name="name">
     <input type="submit" value="Submit">
   </form>
-
-  This should return <%= @result %>
-
+  
   <% if @visitor %>
+
+    Here is your new board:
+    <%= @result %>
 
   <% end %>
 

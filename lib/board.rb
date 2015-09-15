@@ -9,6 +9,7 @@ class Board
 	end
 
 
+
   def print_html
   	"<p>#{@grid}</p>"
 	end
