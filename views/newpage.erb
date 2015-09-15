@@ -1,11 +1,16 @@
 
+
 <div>
   <form action="/newpage">
     What's your name?
     <input type="text" name="name">
     <input type="submit" value="Submit">
   </form>
+
+  This should return <%= @result %>
+
   <% if @visitor %>
-    Welcome to your new game!
+
   <% end %>
+
 </div>

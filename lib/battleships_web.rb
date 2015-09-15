@@ -4,12 +4,16 @@ require_relative '../game_setup.rb'
 
 class BattleshipsWeb < Sinatra::Base
   set :views, proc { File.join(root, '..', 'views')}
+  board = Board.new(Cell)
+
   get '/' do
     erb :index
   end
 
   get '/newpage' do
     @visitor = params[:name]
+
+    @result = board.print_html
     erb :newpage
   end
 
