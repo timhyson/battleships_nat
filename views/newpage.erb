@@ -10,7 +10,22 @@
   <% if @visitor %>
 
     Here is your new board:
-    <%= @board_render %>
+
+    <input type="text" name="coord">
+    <input type="submit" value="Fire at coord">
+
+    <div style= 'width: 420px; height: 650px;'>
+        <% @board.grid.each do |cell| %>
+        <div style= 'width: 40px; height: 40px;
+            display: inline-block;
+            border: 1px rgb(89,89,89) solid;
+            padding: 0px;
+            background: #50A6C2;'>
+
+        </div>
+        <% end %>
+    </div>
+
 
   <% end %>
 

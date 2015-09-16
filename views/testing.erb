@@ -1,0 +1,13 @@
+<%= @array %>
+<ul>
+
+  <%= output = ''
+  @array.each { |name| output += "<li>#{name}</li>"}
+  output %>
+
+  <% @bird_array.each do |bird| %>
+  <li> <%= bird %></li>
+  <% end %>
+
+
+</ul>

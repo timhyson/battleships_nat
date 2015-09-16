@@ -1,3 +1,5 @@
+require_relative 'battleships_web.rb'
+
 class Board
 	attr_reader :grid
 
@@ -25,6 +27,34 @@ class Board
 		"<p style='width: 200px;'>#{@display.join(" ")}</p>"
 
 	end
+
+	def show
+			output = "<div style= 'width: 420px; height: 650px;'>"
+			[*"A".."J"].each do |l|
+				[*1..10].each do |n|
+					if grid["#{l}#{n}".to_sym].hit?
+						output += "<div style= 'width: 40px; height: 40px;
+						  display: inline-block;
+						  border: 1px rgb(89,89,89) solid;
+		          padding: 0px;
+		          background: #C73F17;'></div>"
+					elsif grid["#{l}#{n}".to_sym].content.is_a?(Ship)
+					  output += "<div style= 'width: 40px; height: 40px;
+						  display: inline-block;
+						  border: 1px rgb(89,89,89) solid;
+		          padding: 0px;
+		          background: #5C3317;'></div>"
+					else
+						output += "<div style= 'width: 40px; height: 40px;
+						  display: inline-block;
+						  border: 1px rgb(89,89,89) solid;
+		          padding: 0px;
+		          background: #50A6C2;'></div>"
+					end
+				end
+			end
+			output += "</div>"
+		end
 
 	def place(ship, coord, orientation = :horizontally)
 		coords = [coord]
