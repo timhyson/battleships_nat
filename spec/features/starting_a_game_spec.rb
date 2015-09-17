@@ -24,4 +24,11 @@ feature 'contains link for new board' do
   end
 end
 
-feature ''
+feature 'Placing ships on board' do
+  scenario 'Changes to grey when ship is placed' do
+    visit '/game'
+    fill_in('coords_1', :with => "A1")
+    click_button("Place")
+    expect(page).to have_content ""
+  end
+end

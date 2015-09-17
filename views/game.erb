@@ -1,4 +1,4 @@
-<div style= 'width: 470px; height: 475px;'>
+<div style= 'width: 470px; height: 485px;'>
     <% $board.grid.each do |k, v| %>
     <% if v.content.is_a? Water %>
       <% if v.hit == true %>
@@ -6,14 +6,16 @@
             display: inline-block;
             border: 1px rgb(89,89,89) solid;
             padding: 0px;
-            background: yellow;'>
+            margin-top: 5px;
+            background: yellow;'> <%= k %>
         </div>
       <% else %>
         <div style= 'width: 40px; height: 40px;
             display: inline-block;
             border: 1px rgb(89,89,89) solid;
             padding: 0px;
-            background: #50A6C2;'>
+            margin-top: 5px;
+            background: #50A6C2;'> <%= k %>
         </div>
       <% end %>
     <% else %>
@@ -22,14 +24,16 @@
             display: inline-block;
             border: 1px rgb(89,89,89) solid;
             padding: 0px;
-            background: red;'>
+            margin-top: 5px;
+            background: red;'> <%= k %>
         </div>
       <% else %>
         <div style= 'width: 40px; height: 40px;
             display: inline-block;
             border: 1px rgb(89,89,89) solid;
             padding: 0px;
-            background: #666;'>
+            margin-top: 5px;
+            background: #666;'> <%= k %>
         </div>
       <% end %>
     <% end %>
@@ -46,8 +50,22 @@
     <input type="submit" value="Place">
   </form>
   <form action="/game">
+    Place Submarine
+    <input type="text" name="coords_2">
+    <input type="radio" name="orient_2" value="horizontally" checked> horizontally
+    <input type="radio" name="orient_2" value="vertically"> vertically
+    <input type="submit" value="Place">
+  </form>
+  <form action="/game">
+    Place battleship
+    <input type="text" name="coords_3">
+    <input type="radio" name="orient_3" value="horizontally" checked> horizontally
+    <input type="radio" name="orient_3" value="vertically"> vertically
+    <input type="submit" value="Place">
+  </form>
+  <form action="/game">
     Fire at coord
-    <input type="test" name="fire">
+    <input type="text" name="fire">
     <input type="submit" value="Fire at Coord">
   </form>
 </div>

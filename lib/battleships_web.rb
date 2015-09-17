@@ -23,6 +23,18 @@ class BattleshipsWeb < Sinatra::Base
       if coords_1 && orient_1
         $board.place(@destroyer, coords_1, orient_1)
       end
+    @submarine = Ship.submarine
+    coords_2 = params[:coords_2].to_sym if params[:coords_2]
+    orient_2 = params[:orient_2].to_sym if params[:orient_2]
+      if coords_2 && orient_2
+        $board.place(@submarine, coords_2, orient_2)
+      end
+    @battleship = Ship.battleship
+    coords_3 = params[:coords_3].to_sym if params[:coords_3]
+    orient_3 = params[:orient_3].to_sym if params[:orient_3]
+      if coords_3 && orient_3
+        $board.place(@battleship, coords_3, orient_3)
+      end
     @fire = params[:fire].to_sym if params[:fire]
       $board.shoot_at(@fire) if @fire
     erb :game

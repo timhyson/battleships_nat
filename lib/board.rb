@@ -29,7 +29,7 @@ class Board
 	end
 
 	def place(ship, coord, orientation = :horizontally)
-		coords = [coord]
+		coords = [coord.to_s.strip.to_sym]
 		ship.size.times{coords << next_coord(coords.last, orientation)}
 		put_on_grid_if_possible(coords, ship)
 	end
@@ -75,6 +75,7 @@ private
 
 	def raise_errors_if_cant_place_ship(coords)
 		raise "You cannot place a ship outside of the grid" if any_coord_not_on_grid?(coords)
+
 		raise "You cannot place a ship on another ship" if any_coord_is_already_a_ship?(coords)
 	end
 
