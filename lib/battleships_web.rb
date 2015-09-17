@@ -23,6 +23,8 @@ class BattleshipsWeb < Sinatra::Base
       if coords_1 && orient_1
         $board.place(@destroyer, coords_1, orient_1)
       end
+    @fire = params[:fire].to_sym if params[:fire]
+      $board.shoot_at(@fire) if @fire
     erb :game
   end
 

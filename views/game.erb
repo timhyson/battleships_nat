@@ -1,19 +1,37 @@
 <div style= 'width: 470px; height: 475px;'>
     <% $board.grid.each do |k, v| %>
     <% if v.content.is_a? Water %>
-      <div style= 'width: 40px; height: 40px;
-          display: inline-block;
-          border: 1px rgb(89,89,89) solid;
-          padding: 0px;
-          background: #50A6C2;'>
-      </div>
+      <% if v.hit == true %>
+        <div style= 'width: 40px; height: 40px;
+            display: inline-block;
+            border: 1px rgb(89,89,89) solid;
+            padding: 0px;
+            background: yellow;'>
+        </div>
+      <% else %>
+        <div style= 'width: 40px; height: 40px;
+            display: inline-block;
+            border: 1px rgb(89,89,89) solid;
+            padding: 0px;
+            background: #50A6C2;'>
+        </div>
+      <% end %>
     <% else %>
-      <div style= 'width: 40px; height: 40px;
-          display: inline-block;
-          border: 1px rgb(89,89,89) solid;
-          padding: 0px;
-          background: #666;'>
-      </div>
+      <% if v.hit == true %>
+        <div style= 'width: 40px; height: 40px;
+            display: inline-block;
+            border: 1px rgb(89,89,89) solid;
+            padding: 0px;
+            background: red;'>
+        </div>
+      <% else %>
+        <div style= 'width: 40px; height: 40px;
+            display: inline-block;
+            border: 1px rgb(89,89,89) solid;
+            padding: 0px;
+            background: #666;'>
+        </div>
+      <% end %>
     <% end %>
     <% end %>
 </div>
@@ -29,7 +47,7 @@
   </form>
   <form action="/game">
     Fire at coord
-    <input type="test" name"fire">
+    <input type="test" name="fire">
     <input type="submit" value="Fire at Coord">
   </form>
 </div>
