@@ -39,8 +39,8 @@ class Board
 	end
 
 	def shoot_at(coordinate)
-		raise "You cannot hit the same square twice" if  grid[coordinate].hit?
-		grid[coordinate].shoot
+		raise "You cannot hit the same square twice" if  grid[coordinate.to_s.strip.to_sym].hit?
+		grid[coordinate.to_s.strip.to_sym].shoot
 	end
 
 	def ships
