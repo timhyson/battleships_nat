@@ -1,0 +1,35 @@
+<div style= 'width: 470px; height: 475px;'>
+    <% $board.grid.each do |k, v| %>
+    <% if v.content.is_a? Water %>
+      <div style= 'width: 40px; height: 40px;
+          display: inline-block;
+          border: 1px rgb(89,89,89) solid;
+          padding: 0px;
+          background: #50A6C2;'>
+      </div>
+    <% else %>
+      <div style= 'width: 40px; height: 40px;
+          display: inline-block;
+          border: 1px rgb(89,89,89) solid;
+          padding: 0px;
+          background: #666;'>
+      </div>
+    <% end %>
+    <% end %>
+</div>
+
+
+<div>
+  <form action="/game">
+    Place Destroyer
+    <input type="text" name="coords_1">
+    <input type="radio" name="orient_1" value="horizontally" checked> horizontally
+    <input type="radio" name="orient_1" value="vertically"> vertically
+    <input type="submit" value="Place">
+  </form>
+  <form action="/game">
+    Fire at coord
+    <input type="test" name"fire">
+    <input type="submit" value="Fire at Coord">
+  </form>
+</div>

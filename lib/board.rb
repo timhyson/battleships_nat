@@ -1,12 +1,13 @@
-require_relative 'battleships_web.rb'
-
 class Board
 	attr_reader :grid
 
-	def initialize(content)
+	def initialize(cell)
 		@grid = {}
 		[*"A".."J"].each do |l|
-			[*1..10].each {|n| @grid["#{l}#{n}".to_sym] = content.new}
+			[*1..10].each do |n|
+			 	@grid["#{l}#{n}".to_sym] = cell.new
+				@grid["#{l}#{n}".to_sym].content = Water.new
+		end
 		end
 	end
 
@@ -19,42 +20,13 @@ class Board
 	def board_to_html
 		@display = []
 		@grid.each do |k, v|
-			if v.hit == false ; @display << "W"
+			if v.hit == false ; @display << "~"
 			elsif v.hit == true ; @display << "H"
 			end
 		end
 
 		"<p style='width: 200px;'>#{@display.join(" ")}</p>"
-
 	end
-
-	def show
-			output = "<div style= 'width: 420px; height: 650px;'>"
-			[*"A".."J"].each do |l|
-				[*1..10].each do |n|
-					if grid["#{l}#{n}".to_sym].hit?
-						output += "<div style= 'width: 40px; height: 40px;
-						  display: inline-block;
-						  border: 1px rgb(89,89,89) solid;
-		          padding: 0px;
-		          background: #C73F17;'></div>"
-					elsif grid["#{l}#{n}".to_sym].content.is_a?(Ship)
-					  output += "<div style= 'width: 40px; height: 40px;
-						  display: inline-block;
-						  border: 1px rgb(89,89,89) solid;
-		          padding: 0px;
-		          background: #5C3317;'></div>"
-					else
-						output += "<div style= 'width: 40px; height: 40px;
-						  display: inline-block;
-						  border: 1px rgb(89,89,89) solid;
-		          padding: 0px;
-		          background: #50A6C2;'></div>"
-					end
-				end
-			end
-			output += "</div>"
-		end
 
 	def place(ship, coord, orientation = :horizontally)
 		coords = [coord]
