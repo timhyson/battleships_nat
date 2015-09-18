@@ -7,25 +7,8 @@ class Board
 			[*1..10].each do |n|
 			 	@grid["#{l}#{n}".to_sym] = cell.new
 				@grid["#{l}#{n}".to_sym].content = Water.new
-		end
-		end
-	end
-
-
-
-  def print_html
-  	"<p>#{@grid}</p>"
-	end
-
-	def board_to_html
-		@display = []
-		@grid.each do |k, v|
-			if v.hit == false ; @display << "~"
-			elsif v.hit == true ; @display << "H"
 			end
 		end
-
-		"<p style='width: 200px;'>#{@display.join(" ")}</p>"
 	end
 
 	def place(ship, coord, orientation = :horizontally)
